@@ -10,7 +10,7 @@ const Header = ({ docs }) => {
         <div class="container flex h-14 items-center justify-between gap-12">
           <div class="absolute inset-x-0 top-full h-px bg-zinc-900/7.5 transition dark:bg-white/7.5"></div>
 
-          <Search />
+          <Search docs={docs} />
         </div>
       </div>
       <Sidebar docs={docs} />

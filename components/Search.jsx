@@ -1,12 +1,14 @@
 "use client";
 import useDebouce from "@/hooks/useDebouce";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import SearchResult from "./SearchResult";
 
 const Search = ({ docs }) => {
   const [searchResult, setSearchResult] = useState([]);
   const [term, setTerm] = useState("");
+  const router = useRouter();
   const doSearch = useDebouce((term) => {
     const results = docs.filter((doc) =>
       doc.title.toLowerCase().includes(term.toLowerCase())
@@ -17,6 +19,11 @@ const Search = ({ docs }) => {
     const value = e.target.value;
     setTerm(value);
     doSearch(value);
+  }
+
+  function handleClose(e) {
+    setTerm("");
+    router(e.target.href);
   }
 
   return (
@@ -46,7 +53,13 @@ const Search = ({ docs }) => {
           </kbd>
         </button>
       </div>
-      {term.trim().length > 0 && <SearchResult />}
+      {term.trim().length > 0 && (
+        <SearchResult
+          result={searchResult}
+          term={term}
+          closeSearchResult={handleClose}
+        />
+      )}
     </>
   );
 };

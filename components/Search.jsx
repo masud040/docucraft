@@ -22,8 +22,9 @@ const Search = ({ docs }) => {
   }
 
   function handleClose(e) {
+    e.preventDefault();
+    router.push(e.target.href);
     setTerm("");
-    router(e.target.href);
   }
 
   return (

@@ -1,5 +1,7 @@
+import ContentDisplay from "@/components/ContentDisplay";
+
 const ContentPage = ({ params: { contentId } }) => {
-  return <div>{contentId}</div>;
+  return <ContentDisplay id={contentId} />;
 };
 
 export default ContentPage;

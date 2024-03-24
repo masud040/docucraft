@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const LandingPage = () => {
   return (
-    <article className="">
+    <article>
       <div className="relative">
         <div className="relative px-4 mx-auto ">
           <div className="mx-auto grid max-w-[40rem] grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-5">
